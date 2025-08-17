@@ -11,6 +11,6 @@ public interface AlmacenProductoRepositoryPort {
     Optional<AlmacenProducto> findById(Long id);
     Optional<AlmacenProducto> findByIdProducto(Long idProducto); //
     Optional<AlmacenProducto> update(AlmacenProducto almacenProducto);
-    boolean deleteByIdProducto(Long idProducto);
+    boolean deleteByIdProducto(Long idAlmacen);
 }
 

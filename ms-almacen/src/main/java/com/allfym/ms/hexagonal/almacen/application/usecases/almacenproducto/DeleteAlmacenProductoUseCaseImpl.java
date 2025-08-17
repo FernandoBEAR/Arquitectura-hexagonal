@@ -12,7 +12,7 @@ public class DeleteAlmacenProductoUseCaseImpl implements DeleteAlmacenProductoUs
     }
 
     @Override
-    public boolean deleteAlmacenProductoById(Long idProducto) {
-        return almacenProductoRepositoryPort.deleteByIdProducto(idProducto);
+    public void deleteAlmacenById(Long idAlmacen) {
+         almacenProductoRepositoryPort.deleteByIdProducto(idAlmacen);
     }
 }

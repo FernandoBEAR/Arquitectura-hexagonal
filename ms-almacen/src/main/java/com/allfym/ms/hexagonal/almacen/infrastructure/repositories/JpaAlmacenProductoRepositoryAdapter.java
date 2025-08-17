@@ -31,8 +31,8 @@ public class JpaAlmacenProductoRepositoryAdapter implements AlmacenProductoRepos
    }
 
     @Override
-    public boolean deleteByIdProducto(Long idProducto) {
-        Optional<AlmacenProductoEntity> entity = jpaAlmacenProductoRepository.findByIdProducto(idProducto);
+    public boolean deleteByIdProducto(Long idAlmacen) {
+        Optional<AlmacenProductoEntity> entity = jpaAlmacenProductoRepository.findByIdProducto(idAlmacen);
         if (entity.isPresent()) {
             // Usar el idAlmacen, no el idProducto para eliminar
             jpaAlmacenProductoRepository.deleteById(entity.get().getIdAlmacen());

@@ -22,11 +22,18 @@ public class CreateMovimientoUseCaseImpl implements CreateMovimientoUseCase {
         Movimiento movimiento = new Movimiento();
         movimiento.setTipoMovimiento(tipoMovimiento);
         movimiento.setCantidadDeMovimientos(cantidad);
-        movimiento.setFechaMovimiento(new FechaMovimiento()); // Asigna fecha actual
+
+        // Crear FechaMovimiento con la fecha actual
+        LocalDate fecha = LocalDate.now();
+        FechaMovimiento fechaMovimiento = new FechaMovimiento(fecha.getDayOfMonth(), fecha.getMonthValue(), fecha.getYear());
+        movimiento.setFechaMovimiento(fechaMovimiento);
+
+        // Asignar la referencia bidireccional
+        movimiento.setAlmacenProducto(almacenProducto);
 
         // Agregar el movimiento a la lista del almacenProducto
         almacenProducto.getMovimientos().add(movimiento);
 
-        return movimiento; // No guardes aquí, se guardará con el AlmacenProducto
+        return movimiento;
     }
 }

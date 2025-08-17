@@ -67,7 +67,7 @@ public class AlmacenProductoController {
     @DeleteMapping("/producto/{idProducto}")
     public ResponseEntity<?> eliminarProducto(@PathVariable Long idProducto) {
         try {
-            almacenProductoService.deleteAlmacenProductoById(idProducto);
+            almacenProductoService.deleteAlmacenById(idProducto);
             return ResponseEntity.ok("Producto eliminado correctamente");
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());

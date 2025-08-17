@@ -39,8 +39,8 @@ public class AlmacenProductoService implements CreateAlmacenProductoUseCase, Del
     }
 
     @Override
-    public boolean deleteAlmacenProductoById(Long idProducto) {
-        return deleteAlmacenProductoUseCase.deleteAlmacenProductoById(idProducto);
+    public void deleteAlmacenById(Long idProducto) {
+         deleteAlmacenProductoUseCase.deleteAlmacenById(idProducto);
     }
 
     @Override
