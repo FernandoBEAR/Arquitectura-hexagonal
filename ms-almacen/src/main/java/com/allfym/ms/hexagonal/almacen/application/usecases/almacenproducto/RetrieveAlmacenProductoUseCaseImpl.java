@@ -18,7 +18,7 @@ public class RetrieveAlmacenProductoUseCaseImpl implements RetrieveAlmacenProduc
 
     @Override
     public Optional<AlmacenProducto> getAlmacenProductById(Long id) {
-        return almacenProductoRepositoryPort.findById(id);
+        return almacenProductoRepositoryPort.findByIdAlmacen(id);
     }
 
     @Override

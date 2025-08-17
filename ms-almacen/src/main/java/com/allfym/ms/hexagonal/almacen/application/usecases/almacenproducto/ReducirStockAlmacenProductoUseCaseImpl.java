@@ -20,10 +20,9 @@ public class ReducirStockAlmacenProductoUseCaseImpl implements ReducirStockAlmac
     }
 
     @Override
-    public AlmacenProducto reducirStock(Long idProducto, int cantidad) {
-        externalServicePort.getProductoById(idProducto); // Valida existencia
+    public AlmacenProducto reducirStock(Long idAlmacen, Integer cantidad) {
 
-        AlmacenProducto almacenProducto = almacenProductoRepositoryPort.findByIdProducto(idProducto)
+        AlmacenProducto almacenProducto = almacenProductoRepositoryPort.findByIdAlmacen(idAlmacen)
                 .orElseThrow(() -> new RuntimeException("Producto no encontrado en almacén"));
 
         almacenProducto.setStock(almacenProducto.getStock() - cantidad);

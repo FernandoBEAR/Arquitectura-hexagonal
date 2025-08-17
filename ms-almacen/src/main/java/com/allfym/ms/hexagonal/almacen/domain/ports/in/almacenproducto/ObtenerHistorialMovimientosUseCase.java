@@ -5,5 +5,5 @@ import com.allfym.ms.hexagonal.almacen.domain.models.Movimiento;
 import java.util.List;
 
 public interface ObtenerHistorialMovimientosUseCase {
-    List<Movimiento> obtenerHistorialMovimientos(Long idProducto);
+    List<Movimiento> obtenerHistorialMovimientos(Long idAlmacen);
 }

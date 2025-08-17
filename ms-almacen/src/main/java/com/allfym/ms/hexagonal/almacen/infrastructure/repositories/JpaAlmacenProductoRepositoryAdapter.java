@@ -26,13 +26,13 @@ public class JpaAlmacenProductoRepositoryAdapter implements AlmacenProductoRepos
 
    @Override
    public Optional<AlmacenProducto> findByIdProducto(Long idProducto) {
-       return jpaAlmacenProductoRepository.findByIdProducto(idProducto) // ← CORREGIDO
+       return jpaAlmacenProductoRepository.findByIdAlmacen(idProducto) // ← CORREGIDO
                .map(AlmacenProductoEntity::toDomainModel);
    }
 
     @Override
-    public boolean deleteByIdProducto(Long idAlmacen) {
-        Optional<AlmacenProductoEntity> entity = jpaAlmacenProductoRepository.findByIdProducto(idAlmacen);
+    public boolean deleteByIdAlmacen(Long idAlmacen) {
+        Optional<AlmacenProductoEntity> entity = jpaAlmacenProductoRepository.findByIdAlmacen(idAlmacen);
         if (entity.isPresent()) {
             // Usar el idAlmacen, no el idProducto para eliminar
             jpaAlmacenProductoRepository.deleteById(entity.get().getIdAlmacen());
@@ -48,8 +48,8 @@ public class JpaAlmacenProductoRepositoryAdapter implements AlmacenProductoRepos
     }
 
     @Override
-    public Optional<AlmacenProducto> findById(Long id) {
-        return jpaAlmacenProductoRepository.findById(id).map(AlmacenProductoEntity::toDomainModel);
+    public Optional<AlmacenProducto> findByIdAlmacen(Long idAlmacen) {
+        return jpaAlmacenProductoRepository.findByIdAlmacen(idAlmacen).map(AlmacenProductoEntity::toDomainModel);
     }
 
     @Override

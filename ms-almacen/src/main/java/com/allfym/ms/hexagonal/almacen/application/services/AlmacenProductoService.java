@@ -29,8 +29,8 @@ public class AlmacenProductoService implements CreateAlmacenProductoUseCase, Del
 
 
     @Override
-    public List<Movimiento> obtenerHistorialMovimientos(Long idProducto) {
-        return obtenerHistorialMovimientosUseCase.obtenerHistorialMovimientos(idProducto);
+    public List<Movimiento> obtenerHistorialMovimientos(Long idAlmacen) {
+        return obtenerHistorialMovimientosUseCase.obtenerHistorialMovimientos(idAlmacen);
     }
 
     @Override
@@ -39,8 +39,8 @@ public class AlmacenProductoService implements CreateAlmacenProductoUseCase, Del
     }
 
     @Override
-    public void deleteAlmacenById(Long idProducto) {
-         deleteAlmacenProductoUseCase.deleteAlmacenById(idProducto);
+    public boolean deleteAlmacenById(Long idAlmacen) {
+         return deleteAlmacenProductoUseCase.deleteAlmacenById(idAlmacen);
     }
 
     @Override
@@ -60,13 +60,13 @@ public class AlmacenProductoService implements CreateAlmacenProductoUseCase, Del
 
 
     @Override
-    public AlmacenProducto aumentarStock(Long idProducto, Integer cantidad) {
-        return aumentarStockAlmacenProductoUseCase.aumentarStock(idProducto, cantidad);
+    public AlmacenProducto aumentarStock(Long idAlmacen, Integer cantidad) {
+        return aumentarStockAlmacenProductoUseCase.aumentarStock(idAlmacen, cantidad);
     }
 
     @Override
-    public AlmacenProducto reducirStock(Long idProducto, int cantidad) {
-        return reducirStockAlmacenProductoUseCase.reducirStock(idProducto, cantidad);
+    public AlmacenProducto reducirStock(Long idAlmacen, Integer cantidad) {
+        return reducirStockAlmacenProductoUseCase.reducirStock(idAlmacen, cantidad);
     }
 
 }

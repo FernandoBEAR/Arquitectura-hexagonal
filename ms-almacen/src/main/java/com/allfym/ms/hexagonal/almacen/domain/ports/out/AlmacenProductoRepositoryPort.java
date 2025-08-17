@@ -8,9 +8,9 @@ import java.util.Optional;
 public interface AlmacenProductoRepositoryPort {
     AlmacenProducto save(AlmacenProducto almacenProducto);
     List<AlmacenProducto> findAll();
-    Optional<AlmacenProducto> findById(Long id);
+    Optional<AlmacenProducto> findByIdAlmacen(Long idAlmacen);
     Optional<AlmacenProducto> findByIdProducto(Long idProducto); //
     Optional<AlmacenProducto> update(AlmacenProducto almacenProducto);
-    boolean deleteByIdProducto(Long idAlmacen);
+    boolean deleteByIdAlmacen(Long idAlmacen);
 }
 

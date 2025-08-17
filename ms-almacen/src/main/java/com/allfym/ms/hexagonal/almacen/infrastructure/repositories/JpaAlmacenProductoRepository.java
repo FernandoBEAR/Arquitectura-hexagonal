@@ -8,6 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface JpaAlmacenProductoRepository extends JpaRepository<AlmacenProductoEntity, Long> {
-    Optional<AlmacenProductoEntity> findByIdProducto(Long idAlmacen); // ← CORREGIDO
+    Optional<AlmacenProductoEntity> findByIdAlmacen(Long idAlmacen); // ← CORREGIDO
     boolean existsByIdProducto(Long idProducto);
 }

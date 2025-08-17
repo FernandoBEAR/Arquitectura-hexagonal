@@ -15,8 +15,8 @@ public class ObtenerHistorialMovimientosUseCaseImpl implements ObtenerHistorialM
     }
 
     @Override
-    public List<Movimiento> obtenerHistorialMovimientos(Long idProducto) {
-        AlmacenProducto almacenProducto = almacenProductoRepositoryPort.findByIdProducto(idProducto)
+    public List<Movimiento> obtenerHistorialMovimientos(Long idAlmacen) {
+        AlmacenProducto almacenProducto = almacenProductoRepositoryPort.findByIdAlmacen(idAlmacen)
                 .orElseThrow(() -> new RuntimeException("Producto no encontrado en almacén"));
 
         return almacenProducto.getMovimientos();

@@ -32,20 +32,20 @@ public class AlmacenProductoController {
         }
     }
 
-    @PutMapping("/producto/{idProducto}/aumentar-stock/{cantidad}")
-    public ResponseEntity<?> aumentarStock(@PathVariable Long idProducto, @PathVariable Integer cantidad) {
+    @PutMapping("/producto/{idAlmacen}/aumentar-stock/{cantidad}")
+    public ResponseEntity<?> aumentarStock(@PathVariable Long idAlmacen, @PathVariable Integer cantidad) {
         try {
-            AlmacenProducto almacenProducto = almacenProductoService.aumentarStock(idProducto, cantidad);
+            AlmacenProducto almacenProducto = almacenProductoService.aumentarStock(idAlmacen, cantidad);
             return ResponseEntity.ok(almacenProducto);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 
-    @PutMapping("/producto/{idProducto}/reducir-stock/{cantidad}")
-    public ResponseEntity<?> reducirStock(@PathVariable Long idProducto, @PathVariable Integer cantidad) {
+    @PutMapping("/producto/{idAlmacen}/reducir-stock/{cantidad}")
+    public ResponseEntity<?> reducirStock(@PathVariable Long idAlmacen, @PathVariable Integer cantidad) {
         try {
-            AlmacenProducto almacenProducto = almacenProductoService.reducirStock(idProducto, cantidad);
+            AlmacenProducto almacenProducto = almacenProductoService.reducirStock(idAlmacen, cantidad);
             return ResponseEntity.ok(almacenProducto);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
@@ -64,10 +64,10 @@ public class AlmacenProductoController {
         return ResponseEntity.ok(productos);
     }
 
-    @DeleteMapping("/producto/{idProducto}")
-    public ResponseEntity<?> eliminarProducto(@PathVariable Long idProducto) {
+    @DeleteMapping("/producto/{idAlmacen}")
+    public ResponseEntity<?> eliminarProducto(@PathVariable Long idAlmacen) {
         try {
-            almacenProductoService.deleteAlmacenById(idProducto);
+            almacenProductoService.deleteAlmacenById(idAlmacen);
             return ResponseEntity.ok("Producto eliminado correctamente");
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());

@@ -20,10 +20,9 @@ public class AumentarStockAlmacenProductoUseCaseImpl implements AumentarStockAlm
     }
 
     @Override
-    public AlmacenProducto aumentarStock(Long idProducto, Integer cantidad) {
-        externalServicePort.getProductoById(idProducto); // Valida existencia
+    public AlmacenProducto aumentarStock(Long idAlmacen, Integer cantidad) {
 
-        AlmacenProducto almacenProducto = almacenProductoRepositoryPort.findByIdProducto(idProducto)
+        AlmacenProducto almacenProducto = almacenProductoRepositoryPort.findByIdAlmacen(idAlmacen)
                 .orElseThrow(() -> new RuntimeException("Producto no encontrado en almacén"));
 
         almacenProducto.setStock(almacenProducto.getStock() + cantidad);
